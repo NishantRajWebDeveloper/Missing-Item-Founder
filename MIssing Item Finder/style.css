@@ -1,0 +1,111 @@
+#main {
+    height: 90vh;
+    width: 100%;
+    background: linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)), url('Image/Quantum-School-of-Business-Roorkee-campus2.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#hero-title {
+    position: relative;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    padding: 1rem;
+}
+
+#headline {
+    color: rgb(84, 41, 41);
+    font-size: 6vw;
+}
+
+#subHeadline {
+    color: rgb(36, 51, 40);
+    font-size: 4vw;
+    margin-top: 1rem;
+}
+
+/* Responsive Media Queries */
+
+/* Tablets */
+@media (min-width: 768px) {
+    #headline {
+        font-size: 3vw;
+    }
+
+    #subHeadline {
+        font-size: 2vw;
+    }
+}
+
+/* Desktops */
+@media (min-width: 1024px) {
+    #headline {
+        font-size: 2.5rem;
+    }
+
+    #subHeadline {
+        font-size: 1.2rem;
+    }
+}
+
+#about-section {
+    padding: 2rem 2rem;
+    /* Default padding for mobile screens */
+    width: 100%;
+}
+
+/* Media Query for Tablets and Larger Screens */
+@media (min-width: 768px) {
+    #about-section {
+        padding: 3rem 0rem;
+        /* Adjust padding for medium screens */
+    }
+    #about-section {
+    h6 {
+        font-size: 1.25rem;
+        /* Larger heading size for tablets */
+    }
+
+    p {
+        font-size: 1.1rem;
+        /* Slightly larger font size for paragraphs */
+    }
+
+    ol {
+        font-size: 1.1rem;
+        /* Larger font size for list items */
+    }
+}
+}
+
+/* Media Query for Desktops */
+@media (min-width: 1024px) {
+    #about-section {
+        padding: 3rem 0rem;
+        /* Add larger padding for large screens */
+    }
+
+    #about-section {
+        h6 {
+            font-size: 1.5rem;
+            /* Larger heading size for desktops */
+        }
+
+        p {
+            font-size: 1.2rem;
+            /* Larger font size for paragraphs */
+        }
+
+        ol {
+            font-size: 1.2rem;
+            /* Larger font size for list items */
+        }
+    }
+}
+
+.text-white {
+    text-decoration: none;
+}
