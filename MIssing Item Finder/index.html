@@ -12,10 +12,11 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
+
 <body>
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color:whitesmoke;">
-        <div class="container-fluid ">
-            <a class="navbar-brand" style="padding-top: 10px;" href="#">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#" style="padding-top: 10px;">
                 <img src="Image/logo.png" alt="logo" height="60px">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -23,8 +24,10 @@
                 aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+
+            <!-- Navbar links inside the collapsible section -->
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-3 mb-lg-0 " style="font-size: 20px;">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="font-size: 20px;">
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="#">Home</a>
                     </li>
@@ -34,20 +37,24 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#footer">Contact Us</a>
                     </li>
-
                 </ul>
-                <form class="d-flex mx-auto ">
-                    <input class="form-control me-2" style="width:30vw;" type="search" placeholder="Type to search"
-                        aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
-                <div class="me-4">
-                    <button type="button" class="btn btn-outline-primary">Sign Up</button>
-                    <button type="button" class="btn btn-outline-secondary">Log In</button>
-                </div>
+            </div>
+
+            <!-- Search bar and login buttons outside the toggle -->
+            <form class="d-flex mx-auto me-lg-5 my-2 my-lg-0" style="flex-grow: 1;">
+                <input class="form-control me-2  w-100 w-md-50" type="search" placeholder="Type to search"
+                    aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+            <div class="me-5 d-none d-lg-flex" id="SignLogin">
+                <button type="button" class="btn btn-outline-primary me-2">Sign Up</button>
+                <button type="button" class="btn btn-outline-secondary">Log In</button>
             </div>
         </div>
     </nav>
+    <!-- Bootstrap JS (ensure it’s at the end of the body) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
     <div>
         <main id="main">
             <section id="hero-title" class="d-flex flex-column align-items-center justify-content-center text-center">
@@ -55,7 +62,8 @@
                     Lost something? Found something? Let’s help you
                     <br><span>reconnect!</span>
                 </h3>
-                <p id="subHeadline">"Easily report lost and found items around campus and reunite with what matters most."</p>
+                <p id="subHeadline">"Easily report lost and found items around campus and reunite with what matters
+                    most."</p>
                 <div class="pt-3">
                     <button type="button" class="btn btn-primary me-3">Find Lost Items</button>
                     <button type="button" class="btn btn-secondary">Report Found Item</button>
@@ -63,7 +71,7 @@
             </section>
         </main>
     </div>
-    
+
     <div style="background-color: snow">
         <section id="about-section" class="container-fluid">
             <div class="row">
@@ -72,29 +80,39 @@
                         About Missing Items Finder
                     </h6>
                     <p class="p-3 pb-2">
-                        Losing something valuable can be stressful and frustrating, but finding it shouldn’t have to be. Missing Items Finder is an easy-to-use platform designed to help students and staff quickly recover lost belongings around college campuses and beyond. Our goal is simple: to reunite lost items with their rightful owners as efficiently as possible.
+                        Losing something valuable can be stressful and frustrating, but finding it shouldn’t have to be.
+                        Missing Items Finder is an easy-to-use platform designed to help students and staff quickly
+                        recover lost belongings around college campuses and beyond. Our goal is simple: to reunite lost
+                        items with their rightful owners as efficiently as possible.
                     </p>
                     <p class="p-3 pt-0">
-                        With Missing Items Finder, anyone who finds an item can easily upload a photo and description, while those searching for lost items can browse or search to locate them. Our platform is built on the spirit of community and trust, encouraging people to help each other out in times of need.
+                        With Missing Items Finder, anyone who finds an item can easily upload a photo and description,
+                        while those searching for lost items can browse or search to locate them. Our platform is built
+                        on the spirit of community and trust, encouraging people to help each other out in times of
+                        need.
                     </p>
                     <h6 class="pt-3 pb-3 font-weight-bold">How It Works:</h6>
                     <ol class="pl-3 pb-2">
                         <li>Found an Item? Snap a picture, provide some details, and upload it to the platform.</li>
-                        <li>Lost Something? Browse or search our database of found items and contact the person who reported it.</li>
-                        <li>Reunite & Return: Arrange a meeting on campus or choose a safe way to return the lost item to its owner.</li>
+                        <li>Lost Something? Browse or search our database of found items and contact the person who
+                            reported it.</li>
+                        <li>Reunite & Return: Arrange a meeting on campus or choose a safe way to return the lost item
+                            to its owner.</li>
                     </ol>
                     <h6 class="pt-3 pl-0 font-weight-bold">Our Mission</h6>
                     <p class="p-3">
-                        We aim to create a campus culture where helping one another is second nature. By making lost-and-found processes seamless, we hope to reduce the stress of losing valuable items and foster a greater sense of community among students, faculty, and staff.
+                        We aim to create a campus culture where helping one another is second nature. By making
+                        lost-and-found processes seamless, we hope to reduce the stress of losing valuable items and
+                        foster a greater sense of community among students, faculty, and staff.
                     </p>
                 </div>
             </div>
         </section>
     </div>
-    
-    
 
-    
+
+
+
     <div>
         <!-- Footer -->
         <footer id="footer" class="text-center text-lg-start text-white" style="background-color: #1d1c1cba">
@@ -167,7 +185,7 @@
 
             <!-- Copyright -->
             <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
-                © 2024 Copyright:
+                © 2020 Copyright:
                 <a class="text-white " href="https://mdbootstrap.com/">MissingItemFinder.com</a>
             </div>
             <!-- Copyright -->
