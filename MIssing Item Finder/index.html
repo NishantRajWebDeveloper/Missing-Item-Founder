@@ -10,6 +10,12 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Optional Bootstrap JS (for modal and other interactive components) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 
 
@@ -17,16 +23,16 @@
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color:whitesmoke;">
         <div class="container-fluid">
             <div id="logoToggle">
-            <button class="navbar-toggler ms-2 my-2" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <a class="navbar-brand" href="#" style="padding-top: 10px;">
-                <img src="Image/logo.png" alt="logo" height="60px" id="logo">
-            </a>
-                
-        </div>
+                <button class="navbar-toggler ms-2 my-2" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <a class="navbar-brand" href="#" style="padding-top: 10px;">
+                    <img src="Image/logo.png" alt="logo" height="60px" id="logo">
+                </a>
+
+            </div>
             <!-- Navbar links inside the collapsible section -->
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="font-size: 20px;">
@@ -43,20 +49,148 @@
             </div>
             <!-- Search bar and login buttons outside the toggle -->
             <form class="d-flex mx-auto me-lg-5 my-2 my-lg-0" style="flex-grow: 1;">
-                <input class="form-control me-2  w-100 w-md-50" type="search" placeholder="Type to search"
-                    aria-label="Search">
+                <input class="form-control me-2  w-100 w-md-50" type="search" placeholder="search" aria-label="Search">
                 <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
-            <div class="me-5 d-none d-lg-flex" id="SignLogin">
-                <button type="button" class="btn btn-outline-primary me-2">Sign Up</button>
-                <button type="button" class="btn btn-outline-secondary">Log In</button>
+            <div class="ml-5 d-none d-lg-flex" id="SignLogin">
+                <button type="button" class="btn btn-outline-primary me-2 " data-toggle="modal"
+                    data-target="#authModal" id="loginTrigger">Login</button>
+                <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#authModal"
+                    id="signupTrigger">Sign Up</button>
+
+                <!-- <button type="button" class="btn btn-outline-primary me-2">Sign Up</button>
+                    <button type="button" class="btn btn-outline-secondary">Log In</button> -->
+
             </div>
-        </div>
 
     </nav>
     <!-- Bootstrap JS (ensure it’s at the end of the body) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
+    <style>
+        /* Fix body padding when modal is open */
+        body.modal-open {
+            padding-right: 0 !important;
+        }
+            /* Custom Modal Styles */
+            .modal-content {
+                border-radius: 10px;
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            }
+
+            /* Custom Modal Header */
+            .modal-header {
+                background-color: #007bff;
+                color: #fff;
+                border-top-left-radius: 10px;
+                border-top-right-radius: 10px;
+            }
+
+            /* Custom Buttons */
+            .btn-block {
+                padding: 10px;
+                font-size: 16px;
+            }
+
+
+            /* Responsive adjustments */
+            @media (max-width: 768px) {
+                #authModal {
+                    margin-left: 10px;
+                }
+
+                .modal-dialog {
+                    max-width: 90%;
+                    display: flex;
+                    /* Ensures it's responsive on mobile */
+                }
+
+                .modal-header {
+                    font-size: 18px;
+                }
+
+                .btn-block {
+                    font-size: 14px;
+                }
+            }
+
+    </style>
+    <!-- -- Modal -->
+    <div class="modal fade" id="authModal" tabindex="-1" aria-labelledby="authModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content rounded-lg shadow-lg">
+                <!-- Modal Header -->
+                <div class="modal-header bg-info text-white rounded-top">
+                    <h5 class="modal-title w-100 text-center" id="authModalLabel">Login / Sign Up</h5>
+                    <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <!-- Modal Body with Tabs -->
+                <div class="modal-body">
+                    <!-- Tabs for Login and Sign-Up -->
+                    <ul class="nav nav-tabs justify-content-center mb-3" id="authTabs" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="login-tab" data-toggle="tab" href="#login"
+                                role="tab">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="signup-tab" data-toggle="tab" href="#signup" role="tab">Sign Up</a>
+                        </li>
+                    </ul>
+
+                    <div class="tab-content" id="authTabContent">
+                        <!-- Login Form -->
+                        <div class="tab-pane fade show active" id="login" role="tabpanel">
+                            <form action="/login" method="post">
+                                <div class="form-group">
+                                    <label for="loginUsername">Username</label>
+                                    <input type="text" class="form-control" id="loginUsername" name="username" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="loginPassword">Password</label>
+                                    <input type="password" class="form-control" id="loginPassword" name="password"
+                                        required>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-block rounded-pill">Login</button>
+                            </form>
+                        </div>
+
+                        <!-- Sign-Up Form -->
+                        <div class="tab-pane fade" id="signup" role="tabpanel">
+                            <form action="/signup" method="post">
+                                <div class="form-group">
+                                    <label for="signupUsername">Username</label>
+                                    <input type="text" class="form-control" id="signupUsername" name="username"
+                                        required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="signupEmail">Email</label>
+                                    <input type="email" class="form-control" id="signupEmail" name="email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="signupPassword">Password</label>
+                                    <input type="password" class="form-control" id="signupPassword" name="password"
+                                        required>
+                                </div>
+                                <button type="submit" class="btn btn-success btn-block rounded-pill">Sign Up</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript for dynamic tab switching -->
+    <script>
+         document.getElementById('loginTrigger').addEventListener('click', function () {
+            document.querySelector('#login-tab').click();
+        });
+        document.getElementById('signupTrigger').addEventListener('click', function () {
+            document.querySelector('#signup-tab').click();
+        });
+    </script>
     <div>
         <main id="main">
             <section id="hero-title" class="d-flex flex-column align-items-center justify-content-center text-center">
@@ -67,8 +201,10 @@
                 <p id="subHeadline">"Easily report lost and found items around campus and reunite with what matters
                     most."</p>
                 <div class="pt-3">
-                    <button type="button" class="btn btn-primary me-3">Find Lost Items</button>
-                    <button type="button" class="btn btn-secondary">Report Found Item</button>
+                    <button type="button" class="btn btn-primary me-3" data-toggle="modal" data-target="#authModal">Find
+                        Lost Items</button>
+                    <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#authModal"
+                        id="signupTrigger">Report Found Item</button>
                 </div>
             </section>
         </main>
@@ -77,7 +213,7 @@
     <div style="background-color: snow">
         <section id="about-section" class="container-fluid">
             <div class="row">
-                    <div class="col-12 col-md-8 offset-md-2">
+                <div class="col-12 col-md-8 offset-md-2">
                     <h6 class="pt-2 pl-0 font-weight-bold">
                         About Missing Items Finder
                     </h6>
@@ -177,8 +313,8 @@
                             href="https://x.com/Nishant_Raj_Dev" target="_blank" role="button"><i
                                 class="fab fa-twitter"></i></a>
                         <!-- Google -->
-                        <a class="btn btn-primary btn-floating m-1" style="background-color: #dd4b39" href="https://www.google.com/"
-                            role="button"><i class="fab fa-google"></i></a>
+                        <a class="btn btn-primary btn-floating m-1" style="background-color: #dd4b39"
+                            href="https://www.google.com/" role="button"><i class="fab fa-google"></i></a>
                     </div>
                 </div>
                 <!--Grid row-->
